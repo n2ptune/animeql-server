@@ -1,0 +1,25 @@
+type AnimeAttribute {
+  createdAt: String!
+  updatedAt: String!
+  canonicalTitle: String!
+  averageRating: String!
+  status: String!
+  startDate: String!
+  endDate: String!
+  episodeCount: Int!
+  episodeLength: Int!
+  totalLength: Int!
+  ratingRank: Int!
+  popularityRank: Int!
+  synopsis: String!
+}
+
+type Anime {
+  id: String!
+  type: String!
+  attributes: AnimeAttribute!
+}
+
+type Query {
+  animes: [Anime]!
+}

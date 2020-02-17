@@ -1,17 +1,27 @@
 type AnimeAttribute {
-  createdAt: String!
-  updatedAt: String!
-  canonicalTitle: String!
-  averageRating: String!
-  status: String!
-  startDate: String!
-  endDate: String!
-  episodeCount: Int!
-  episodeLength: Int!
-  totalLength: Int!
-  ratingRank: Int!
-  popularityRank: Int!
-  synopsis: String!
+  createdAt: String
+  updatedAt: String
+  canonicalTitle: String
+  averageRating: String
+  status: String
+  startDate: String
+  endDate: String
+  episodeCount: Int
+  episodeLength: Int
+  totalLength: Int
+  ratingRank: Int
+  popularityRank: Int
+  synopsis: String
+  posterImage: PosterImage
+  coverImage: PosterImage
+}
+
+type PosterImage {
+  tiny: String
+  small: String
+  medium: String
+  large: String
+  original: String
 }
 
 type Anime {
@@ -20,6 +30,14 @@ type Anime {
   attributes: AnimeAttribute!
 }
 
+type Links {
+  first: String
+  prev: String
+  next: String
+  last: String
+}
+
 type Query {
   animes: [Anime]!
+  links: Links!
 }

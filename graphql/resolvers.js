@@ -1,8 +1,9 @@
-import { getAnimes } from './db'
+import { getAnimes, getLinks } from './db'
 
 const resolvers = {
   Query: {
-    animes: () => getAnimes()
+    animes: getAnimes,
+    links: getLinks
   }
 }
 

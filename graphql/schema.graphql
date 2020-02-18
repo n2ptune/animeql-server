@@ -38,7 +38,7 @@ type Links {
 }
 
 type Query {
-  anime(id: Int!): Anime!
+  anime(id: String!): Anime!
   animes: [Anime]!
   links: Links!
 }

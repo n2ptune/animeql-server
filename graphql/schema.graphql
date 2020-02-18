@@ -38,6 +38,7 @@ type Links {
 }
 
 type Query {
+  anime(id: Int!): Anime!
   animes: [Anime]!
   links: Links!
 }

@@ -11,6 +11,7 @@ type AnimeAttribute {
   totalLength: Int
   ratingRank: Int
   popularityRank: Int
+  favoritesCount: Int
   synopsis: String
   posterImage: PosterImage
   coverImage: PosterImage

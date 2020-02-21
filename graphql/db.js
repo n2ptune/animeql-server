@@ -25,7 +25,7 @@ export const getAnimes = async () => {
   const { data: animeData } = await axios.get(`${APP_URL}`, {
     params: {
       sort: '-updatedAt',
-      limit: 20
+      limit: 10
     }
   })
 
@@ -36,7 +36,7 @@ export const getLinks = async () => {
   const { data: animeData } = await axios.get(`${APP_URL}`, {
     params: {
       sort: '-updatedAt',
-      limit: 20
+      limit: 10
     }
   })
 
@@ -51,4 +51,26 @@ export const getAnimeByID = async id => {
   })
 
   return animeData.data[0]
+}
+
+export const getAnimesByURL = async url => {
+  const { data: animeData } = await axios.get(url, {
+    params: {
+      sort: '-updatedAt',
+      limit: 10
+    }
+  })
+
+  return animeData.data
+}
+
+export const getLinksByURL = async url => {
+  const { data: animeData } = await axios.get(url, {
+    params: {
+      sort: '-updatedAt',
+      limit: 10
+    }
+  })
+
+  return animeData.links
 }

@@ -63,6 +63,8 @@ type Rating {
 type Query {
   ratings(id: String!): Rating!
   anime(id: String!): Anime!
-  animes: [Anime]!
+  animes: [Anime!]!
+  animesByURL(url: String!): [Anime!]!
+  linksByURL(url: String!): Links!
   links: Links!
 }

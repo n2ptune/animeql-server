@@ -82,10 +82,12 @@ export const getRelationAnimeByID = async id => {
     }
   })
 
-  const relatedURL = animeData.data[0].relationships.genres.links.related
-
+  /**
+   * @changed get genres -> categories
+   * @deprecated genres
+   */
+  const relatedURL = animeData.data[0].relationships.categories.links.related
   const { data: related } = await axios.get(relatedURL)
-
   const relatedIDs = []
 
   related.data.forEach(anime => {
@@ -94,7 +96,7 @@ export const getRelationAnimeByID = async id => {
 
   const { data: relatedAnimes } = await axios.get(`${APP_URL}`, {
     params: {
-      'filter[genres]': relatedIDs.join(','),
+      'filter[categories]': relatedIDs.join(','),
       sort: '-updatedAt'
     }
   })

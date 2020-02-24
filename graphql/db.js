@@ -74,3 +74,30 @@ export const getLinksByURL = async url => {
 
   return animeData.links
 }
+
+export const getRelationAnimeByID = async id => {
+  const { data: animeData } = await axios.get(`${APP_URL}`, {
+    params: {
+      'filter[id]': id
+    }
+  })
+
+  const relatedURL = animeData.data[0].relationships.genres.links.related
+
+  const { data: related } = await axios.get(relatedURL)
+
+  const relatedIDs = []
+
+  related.data.forEach(anime => {
+    relatedIDs.push(anime.attributes.slug)
+  })
+
+  const { data: relatedAnimes } = await axios.get(`${APP_URL}`, {
+    params: {
+      'filter[genres]': relatedIDs.join(','),
+      sort: '-updatedAt'
+    }
+  })
+
+  return relatedAnimes.data
+}

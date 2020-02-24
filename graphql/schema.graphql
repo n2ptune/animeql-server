@@ -17,6 +17,7 @@ type AnimeAttribute {
   status: String
   synopsis: String
   ageRating: String
+  nextRelease: String
   # Image
   posterImage: PosterImage
   coverImage: PosterImage
@@ -67,4 +68,5 @@ type Query {
   animesByURL(url: String!): [Anime!]!
   linksByURL(url: String!): Links!
   links: Links!
+  relation(id: String!): [Anime]
 }

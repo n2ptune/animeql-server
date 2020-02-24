@@ -4,7 +4,8 @@ import {
   getAnimeByID,
   getRatings,
   getAnimesByURL,
-  getLinksByURL
+  getLinksByURL,
+  getRelationAnimeByID
 } from './db'
 
 const resolvers = {
@@ -14,7 +15,8 @@ const resolvers = {
     animes: getAnimes,
     animesByURL: (_, { url }) => getAnimesByURL(url),
     linksByURL: (_, { url }) => getLinksByURL(url),
-    links: getLinks
+    links: getLinks,
+    relation: (_, { id }) => getRelationAnimeByID(id)
   }
 }
 
